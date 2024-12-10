@@ -2,8 +2,7 @@ FROM node:10-alpine
 
 RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
-RUN apk update \
-apk add git
+RUN apk update && apk add --no-cache git
 
 
 RUN git clone https://github.com/vividandrew/CW2 /home/node/app
