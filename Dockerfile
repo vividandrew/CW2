@@ -2,7 +2,7 @@ FROM node:10-alpine
 
 RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
-COPY server.js /home/node/app
+RUN git clone https://github.com/vividandrew/CW2 /home/node/app
 
 WORKDIR /home/node/app
 
