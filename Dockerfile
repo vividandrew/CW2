@@ -2,8 +2,8 @@ FROM node:10-alpine
 
 RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
-RUN apt-get update \
-    apt-get install git
+RUN apk update \
+apk add git
 
 
 RUN git clone https://github.com/vividandrew/CW2 /home/node/app
