@@ -38,6 +38,7 @@ pipeline {
 
 				sshagent(credentials: ['f55503c3-1e8c-4573-875f-258f1fc80294']){
 					sh 'ssh ubuntu@34.201.100.69'
+					sh 'ls'
 					sh 'ansible-playbook playbook.yml'
 				}
 			}
