@@ -17,7 +17,7 @@ pipeline {
 				echo ' Testsing Docker Image....'
                     		echo ' ================================'
 				sh 'docker image inspect vividsoushi/cw2:0.5'
-				sh 'docker run --name coursework2 -p 8081:8080 -d vividsoushi/cw2:latest'
+				sh 'docker run --name coursework2 -p 8081:8080 -d vividsoushi/cw2:0.5'
 				sh 'docker stop coursework2'
 				sh 'docker rm coursework2'
 			}
