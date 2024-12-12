@@ -36,8 +36,8 @@ pipeline {
                         	echo ' Deploying Application....'
                         	echo ' ================================'
 
-				sshagent(['id_rsa.pub']){
-					sh 'ssh ubuntu@34.201.100.69'
+				sshagent(credentials: ['f55503c3-1e8c-4573-875f-258f1fc80294']){
+					sh 'ssh -o StrictHostKeyChecking=no 34.201.100.69 uname -a'
 					sh 'ansible-playbook playbook.yml'
 				}
 			}
