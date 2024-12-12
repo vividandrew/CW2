@@ -9,14 +9,14 @@ pipeline {
 			steps {
 				echo ' Building Docker image...'
 				echo ' ================================'
-				sh 'docker build --tag vividsoushi/cw2:latest .'
+				sh 'docker build --tag vividsoushi/cw2:0.5 .'
 			}
 		}
 		stage("Test Docker image"){
 			steps{
 				echo ' Testsing Docker Image....'
                     		echo ' ================================'
-				sh 'docker image inspect vividsoushi/cw2:latest'
+				sh 'docker image inspect vividsoushi/cw2:0.5'
 				sh 'docker run --name coursework2 -p 8081:8080 -d vividsoushi/cw2:latest'
 				sh 'docker stop coursework2'
 				sh 'docker rm coursework2'
@@ -28,7 +28,7 @@ pipeline {
                         	echo ' ================================'
 
 				sh 'echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin'
-				sh 'docker push vividsoushi/cw2:latest'
+				sh 'docker push vividsoushi/cw2:0.5'
 			}
 		}
 		stage("Deploy Application") {
